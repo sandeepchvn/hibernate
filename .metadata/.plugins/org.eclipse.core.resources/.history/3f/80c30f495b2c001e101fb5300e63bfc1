@@ -1,0 +1,5 @@
+package com.tyss.person_pan.dao;
+
+public class PersonPanDao {
+
+}

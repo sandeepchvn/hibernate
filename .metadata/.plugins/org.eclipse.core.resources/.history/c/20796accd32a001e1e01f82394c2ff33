@@ -1,0 +1,15 @@
+package com.tyss.Car_Engine;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Car {
+	@Id
+	private int id;
+	private String name;
+	private double price;
+	@OneToOne//hibernate mapping by using the annotation
+	private Engine engine;//Has-a-Relationship
+}

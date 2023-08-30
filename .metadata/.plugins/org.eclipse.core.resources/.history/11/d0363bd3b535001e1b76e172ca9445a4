@@ -1,0 +1,128 @@
+package food_app.dao;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import food_app.dto.Branch;
+import food_app.dto.FoodOrder;
+import food_app.dto.Menu;
+import food_app.dto.Userr;
+
+public class UserrDao {
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
+	EntityManager em = emf.createEntityManager();
+	EntityTransaction et = em.getTransaction();
+	Scanner sc = new Scanner(System.in);
+
+	public void saveUser() {
+		Userr userr = new Userr();
+		System.out.println("user id ");
+		userr.setId(sc.nextInt());
+		System.out.println("enter user Name ");
+		userr.setName(sc.next());
+		System.out.println("enter user Email ");
+		userr.setEmail(sc.next());
+		System.out.println("enter user Password ");
+		userr.setPassword(sc.next());
+		System.out.println("choose role of user 1. BranchManager\n2. Admin3.\n Staff");
+		int choice=(sc.nextInt();
+		if(choice ==1) {
+		userr.setRole("BranchManager");
+		}
+		else if(choice == 2) {
+			userr.setRole("Admin");
+			}
+		else if(choice == 2) {
+			userr.setRole("Staff");
+			}
+		et.begin();
+		em.persist(userr);
+		et.commit();
+		System.out.println("saved---!");
+	}
+
+	public void findUser() {
+		System.out.println("enter the User id to get User");
+		Userr userr = em.find(Userr.class, sc.nextInt());
+		if (userr != null) {
+			System.out.println("user id " + userr.getId());
+			System.out.println("user Name " + userr.getName());
+			System.out.println("user Email " + userr.getEmail());
+			System.out.println("user Password " + userr.getPassword());
+			System.out.println("user Role " + userr.getRole());
+		}
+	}
+
+	public void deleteUser() {
+		System.out.println("enter the User id to delete");
+		Userr userr = em.find(Userr.class, sc.nextInt());
+		if (userr != null) {
+			et.begin();
+			em.remove(userr);
+			et.commit();
+			System.out.println("deleted--------!");
+		}
+	}
+
+	public void updateUser() {
+		System.out.println("enter the User id to update");
+		Userr userr = em.find(Userr.class, sc.nextInt());
+		if (userr != null) {
+			System.out.println("enter the new Email");
+			userr.setEmail(sc.next());
+			et.begin();
+			em.merge(userr);
+			et.commit();
+			System.out.println("updated--------!");
+		}
+	}
+
+	public void setMenuToUser() {
+		System.out.println("enter Menu id to get Menu");
+		Menu menu = em.find(Menu.class, sc.nextInt());
+		if (menu != null) {
+			System.out.println("enter the user id");
+			Userr user = em.find(Userr.class, sc.nextInt());
+			user.setMenu(menu);
+			et.begin();
+			em.merge(user);
+			et.commit();
+			System.out.println("User has menu");
+		}
+	}
+
+	public void setBranchToUser() {
+
+		System.out.println("enter the Branch id to get branch");
+		Branch branch = em.find(Branch.class, sc.nextInt());
+		if (branch != null) {
+			System.out.println("enter the user id");
+			Userr userr = em.find(Userr.class, sc.nextInt());
+			branch.setUserr(userr);
+			et.begin();
+			em.merge(branch);
+			et.commit();
+			System.out.println("user has branch");
+		}
+	}
+
+	public void setFoodOrderToUser() {
+		System.out.println("enter the Food Order id ");
+		FoodOrder foodOrder = em.find(FoodOrder.class, sc.nextInt());
+		if (foodOrder != null) {
+			System.out.println("enter the user id");
+			Userr user = em.find(Userr.class, sc.nextInt());
+			foodOrder.setUserr(user);
+			et.begin();
+			em.merge(foodOrder);
+			et.commit();
+			System.out.println("User has food order");
+		}
+	}
+}

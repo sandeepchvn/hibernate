@@ -1,0 +1,18 @@
+package com.tyss.Car_Engine;
+
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class Test {
+	public static void main(String[] args) {
+		EntityManagerFactory emf=Persistence.createEntityManagerFactory("vikas");
+		EntityManager em=emf.createEntityManager();
+		Scanner read=new Scanner(System.in);
+		System.out.println("enter the Car id to fetch Engine");
+		em.find(Car.class, read.nextInt());
+		
+	}
+}

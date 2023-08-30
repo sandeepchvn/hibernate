@@ -1,0 +1,71 @@
+package food_app.dao;
+
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import food_app.dto.FoodOrder;
+import food_app.dto.Menu;
+import food_app.dto.Userr;
+
+public class FoodOrderDao {
+	EntityManagerFactory emf=Persistence.createEntityManagerFactory("dev");
+	EntityManager em=emf.createEntityManager();
+	EntityTransaction et=em.getTransaction();
+	Scanner sc=new Scanner(System.in);
+	public void saveFoodOrder() {
+		FoodOrder foodOrder=new FoodOrder();
+		System.out.println("enter Food Order Id");
+		foodOrder.setId(30);
+		System.out.println("enter Food Order Id");
+		foodOrder.setStatus("done");
+		System.out.println("enter Food Order Id");
+		foodOrder.setTotalPrice(3456.45);
+		System.out.println("enter Food Order Id");
+		foodOrder.setOrderCreatedTime("10:23");
+		System.out.println("enter Food Order Id");
+		foodOrder.setOrderDeliveryTime("3:23");
+		System.out.println("enter Food Order Id");
+		foodOrder.setCustomerName("gavan");
+		System.out.println("enter Food Order Id");
+		foodOrder.setContactNumber(3433);
+		et.begin();
+		em.persist(foodOrder);
+		et.commit();
+		System.out.println("saved--------------!");
+	}
+	public void findFoodOrder() {
+		System.out.println("enter the Food Order id to get Food Order");
+		FoodOrder foodOrder=em.find(FoodOrder.class, sc.nextInt());
+		if(foodOrder != null) {
+			System.out.println("Food Order id"+foodOrder.getId());
+			System.out.println("Food Order status"+foodOrder.getStatus());
+			System.out.println("Food Order price"+foodOrder.getTotalPrice());
+			System.out.println("Food Order created time"+foodOrder.getOrderCreatedTime());
+			System.out.println("Food Order updated time"+foodOrder.getOrderDeliveryTime());
+			System.out.println("Food Order contcat number"+foodOrder.getContactNumber());
+			
+		}
+	}
+	public void deleteFoodOrder() {
+		FoodOrder foodOrder=em.find(FoodOrder.class, 30);
+		if(foodOrder != null) {
+			et.begin();
+			em.remove(foodOrder);
+			et.commit();
+		}
+	}
+	public void updateFoodOrder() {
+		FoodOrder foodOrder=em.find(FoodOrder.class, 30);
+		if(foodOrder != null) {
+			foodOrder.setContactNumber(673);
+			et.begin();
+			em.merge(foodOrder);
+			et.commit();
+		}
+	}
+	
+}

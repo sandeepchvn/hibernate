@@ -1,0 +1,11 @@
+package com.tyss.person_pan.dao;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class PersonPanDao {
+	EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("dev");
+public void savePerson() {
+	
+}
+}

@@ -1,0 +1,5 @@
+package com.tyss.enumm;
+
+public enum Name {
+
+}

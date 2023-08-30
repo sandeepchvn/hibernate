@@ -1,0 +1,5 @@
+package food_app.dao;
+
+public enum Role {
+	BRANCHMANAGER, ADMIN, STAFF, constant ADMIN;
+}

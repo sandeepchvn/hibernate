@@ -1,0 +1,32 @@
+package com.tyss;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Bank {
+	@Id
+	private int id;
+	private String ifse;
+	private String name;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getIfse() {
+		return ifse;
+	}
+	public void setIfse(String ifse) {
+		this.ifse = ifse;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+
+}

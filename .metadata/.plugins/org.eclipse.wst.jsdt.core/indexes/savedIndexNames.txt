@@ -1,0 +1,1 @@
+INDEX VERSION 1.4+C:\Users\sande\OneDrive\Desktop\Desktop\tyss\hibernate\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
