@@ -1,5 +1,0 @@
-package food_app.dao;
-
-public enum Role {
-
-}

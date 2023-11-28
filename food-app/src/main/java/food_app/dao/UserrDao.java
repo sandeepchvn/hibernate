@@ -43,10 +43,16 @@ public class UserrDao {
 			userr.setRole("Staff");
 		} else
 			System.out.println("choice is wrong");
+		if(userr != null) {
 		et.begin();
 		em.persist(userr);
 		et.commit();
+//		return true;
+		}
 		System.out.println("saved---!");
+
+		
+//		return false;
 	}
 
 	public void findUser() {

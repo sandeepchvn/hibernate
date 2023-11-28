@@ -25,13 +25,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="com.tyss.servlet"/>
 		</list>
 		<list key="groupId">
-			<item value="com.tyss"/>
 		</list>
 		<list key="artifactId">
-			<item value="servlet"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -47,6 +44,7 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.ty"/>
 			<item value="com.tyss"/>
 			<item value="one-to-one-"/>
 			<item value="org.jsp"/>
@@ -55,6 +53,9 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="quary-parameter"/>
+			<item value="persistence_demo"/>
+			<item value="persitence"/>
 			<item value="enum-demo"/>
 			<item value="chaching"/>
 			<item value="food-app"/>
@@ -67,9 +68,6 @@
 			<item value="one-to-many"/>
 			<item value="person-pancard"/>
 			<item value="hdhdhd"/>
-			<item value="car-app"/>
-			<item value="one-to-one"/>
-			<item value="test"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
